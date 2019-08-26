@@ -5,16 +5,26 @@
 </template>
 
 <script>
+import fs from 'libs/files.js'
+import { mapGetters, mapActions } from 'vuex';
 export default {
   name: 'app',
   components: {},
   data() {
     return {};
   },
-  computed: {},
+  computed: {
+
+    ...mapGetters(['storage']),
+
+  },
 
   methods: {},
-  mounted() {}
+  mounted() {
+    console.log(this.storage.rootPath)
+    
+    fs.writeFile(`${this.storage.rootPath}\\1.json`, JSON.stringify({id: '1234'}))
+  }
 };
 </script>
 <style lang="less">

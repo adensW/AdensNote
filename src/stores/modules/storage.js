@@ -10,15 +10,14 @@ const state = {
     {
       id: '1',
       name: 'default',
-      rootPath: `${api.getAppPath()}`,
+      rootPath: `${api.getAppPath()}\\storage`,
       albumsPath: `${api.getAppPath()}\\storage\\albums.json`,
       todoPath: `${api.getAppPath()}\\storage\\todos`,
       notePath: `${api.getAppPath()}\\storage\\notes`,
-      configPath: `${api.getAppPath()}\\config.json`,
+      configPath: `${api.getAppPath()}\\storage\\config.json`,
       isOpen: true
     }
   ]
-
 }
 const getters = {
   storage: (state) => {

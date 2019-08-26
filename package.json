@@ -1,5 +1,5 @@
 {
-  "name": "adens.notepad",
+  "name": "adens.note",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -55,5 +55,6 @@
     "> 1%",
     "last 2 versions"
   ],
-  "main": "background.js"
+  "main": "background.js",
+  "__npminstall_done": false
 }
