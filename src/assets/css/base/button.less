@@ -1,0 +1,48 @@
+@import './_variables.less';
+@import './_mixins.less';
+
+.a-btn-base{
+    border: none;
+    border-radius: 2px;
+    display: inline-block;
+    height: 36px;
+    line-height: 36px;
+    font-size: 14px;
+    text-transform: uppercase;
+    vertical-align: middle;
+    text-align: center;
+    -webkit-tap-highlight-color: transparent;
+}
+.a-btn{
+    margin: 2px 15px;
+}
+.a-btn{
+    .a-btn-base();
+    &--fab{
+        width:36px;
+        background-color: @primary-color;
+        float:left;
+        border-radius: 50%;
+        &:hover{
+        .btn-hover(tint(black,20%),tint(@primary-color,20%),tint(@primary-color,20%));
+        }
+    }
+    &--outlined{
+        border:gray solid 1px;
+        background-color: transparent;
+        &:hover{
+        .btn-hover(tint(@primary-color,20%));
+        }
+    }
+    &--text{
+        background-color: transparent;
+        &:hover{
+        .btn-hover(tint(@primary-color,20%));
+            
+        }
+    }
+    & i{
+        vertical-align: middle;
+        text-align: left;
+    }
+}

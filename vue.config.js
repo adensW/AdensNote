@@ -21,6 +21,7 @@ module.exports = {
     config.resolve.alias
       .set('@', resolve('src'))
       .set('src', resolve('src'))
+      .set('assets', resolve('src/assets'))
       .set('common', resolve('src/common'))
       .set('libs', resolve('src/common/libs'))
       .set('utils', resolve('src/common/utils'))

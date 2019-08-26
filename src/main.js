@@ -2,7 +2,7 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
-import '../public/styles/theme/default/default.less'
+import 'assets/css/index.less'
 import VueHotkey from 'v-hotkey'
 
 Vue.use(VueHotkey)
