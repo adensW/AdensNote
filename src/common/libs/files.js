@@ -21,5 +21,16 @@ class Files {
       }
     })
   }
+  ExistsSync(path) {
+    try {
+      fs.accessSync(path, fs.F_OK);
+    } catch (e) {
+      return false;
+    }
+    return true;
+  }
+  mkdirSync(path) {
+    fs.mkdirSync(path);
+  }
 }
 export default new Files()

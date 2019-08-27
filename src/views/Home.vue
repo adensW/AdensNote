@@ -1,14 +1,14 @@
 <template>
-  <div class="home layout-container" v-hotkey='keymap'>
+  <div class="home layout-container" v-hotkey="keymap">
     <div class="row wrapper">
       <div class="col-5 nav-container">
-        <SideNav v-if="albumLoaded" class='layout-window'></SideNav>
+        <SideNav v-if="albumLoaded" class="layout-window"></SideNav>
       </div>
       <div class="col-5 container">
-        <ToDo v-if="todoLoaded" class='layout-window'></ToDo>
+        <ToDo v-if="todoLoaded" class="layout-window"></ToDo>
       </div>
-      <div class="col-14  container">
-        <Editor v-if="editorLoaded" class='layout-window'></Editor>
+      <div class="col-14 container">
+        <Editor v-if="editorLoaded" class="layout-window"></Editor>
       </div>
     </div>
     <div class="row foot">foot: Aden's note</div>
@@ -33,13 +33,18 @@ export default {
   },
   computed: {
     ...mapGetters(['storage', 'albumLoaded', 'todoLoaded', 'editorLoaded']),
-    keymap(){
-      return{
-        'ctrl+s': () => {console.log('save')},
-        'up': () => {console.log('up')},
-        'down': () => {console.log('down')}
-
-      }
+    keymap() {
+      return {
+        'ctrl+s': () => {
+          console.log('save');
+        },
+        up: () => {
+          console.log('up');
+        },
+        down: () => {
+          console.log('down');
+        }
+      };
     }
   },
   mixins: [autoSaveMixin, switcherMixin],
@@ -73,7 +78,7 @@ export default {
 };
 </script>
 <style lang="less" scoped>
-.wrapper{
+.wrapper {
   height: 96vh;
 }
 </style>
