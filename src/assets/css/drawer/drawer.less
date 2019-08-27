@@ -1,0 +1,24 @@
+.drawer-wrapper{
+    position: fixed;
+    display: inline-block;
+    width: 256px;
+}
+.mask{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100vw;
+    height: 100vh;
+    z-index: 10001;
+    filter:alpha(opacity=60);
+    background-color: #777;
+    opacity: 0.5;
+    -moz-opacity: 0.5;
+    &--on{
+        display: block;
+    }
+    &--off{
+        display: none;
+    }
+    
+}

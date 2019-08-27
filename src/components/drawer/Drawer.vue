@@ -1,6 +1,7 @@
 <template>
-<div class='drawer-wraper'>
-
+<div class='drawer-wrapper'>
+  <div class='mask' v-show='open' @click='toggleDisplay'></div>
+  <div class=''><slot></slot></div>
 </div>
 </template>
 
@@ -21,6 +22,17 @@ export default {
     },
     styles: {
       type: Object
+    }
+  },
+  data(){
+    return {
+      open:this.value|false
+    }
+  },
+  methods:{
+    toggleDisplay(){
+      console.log(this.open)
+      this.open = !this.open;
     }
   }
 }

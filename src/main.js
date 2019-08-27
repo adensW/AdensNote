@@ -4,7 +4,8 @@ import router from './router'
 import store from './store'
 import 'assets/css/index.less'
 import VueHotkey from 'v-hotkey'
-
+import AdensUI from './components/index.js'
+Vue.use(AdensUI);
 Vue.use(VueHotkey)
 Vue.config.productionTip = false
 

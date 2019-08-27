@@ -1,15 +1,22 @@
 <template>
   <div id="app">
-    <router-view></router-view>
+    <bar></bar>
+    <div class='main-content'>
+      <router-view></router-view>
+    </div>
+     <div class="row foot">foot: Aden's note</div>
   </div>
 </template>
 
 <script>
 import fs from 'libs/files.js'
 import { mapGetters } from 'vuex';
+import Bar from 'components/bar/Bar'
 export default {
   name: 'app',
-  components: {},
+  components: {
+    Bar
+  },
   data() {
     return {};
   },
@@ -75,5 +82,8 @@ export default {
 }
 .container {
   overflow: auto;
+}
+.main-content{
+  margin-top: 56px;
 }
 </style>
