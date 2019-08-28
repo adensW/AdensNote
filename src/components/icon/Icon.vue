@@ -1,13 +1,9 @@
 <template>
-  <i class='icons'>menu</i>
+  <i class='icons' @click="$emit('handleClick')">menu</i>
 </template>
 
 <script>
 export default {
-    name:'Icon',
+  name: 'Icon'
 }
 </script>
-
-<style>
-
-</style>

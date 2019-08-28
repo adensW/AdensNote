@@ -9,7 +9,7 @@
 export default {
   name: 'Drawer',
   prop: {
-    value: {
+    opened: {
       type: Boolean,
       default: false
     },
@@ -24,13 +24,19 @@ export default {
       type: Object
     }
   },
-  data(){
+  data() {
     return {
-      open:this.value|false
+      open: this.opened | false
     }
   },
-  methods:{
-    toggleDisplay(){
+  watch: {
+    opened: function(val) {
+      console.log(val);
+      this.open = val;
+    }
+  },
+  methods: {
+    toggleDisplay() {
       console.log(this.open)
       this.open = !this.open;
     }

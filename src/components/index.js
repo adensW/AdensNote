@@ -1,13 +1,12 @@
 import Icon from './icon/Icon';
 
-
-const AUIs={
-    Icon
+const AUIs = {
+  Icon
 }
-const AdensUI={}
+const AdensUI = {}
 AdensUI.install = function (Vue) {
-    Object.keys(AUIs).forEach(key => {
-        Vue.component(key, AUIs[key]);
-    });
+  Object.keys(AUIs).forEach(key => {
+    Vue.component(key, AUIs[key]);
+  });
 }
 export default AdensUI;
