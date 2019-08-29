@@ -1,7 +1,7 @@
 <template>
 <div class='drawer-wrapper'>
-  <div class='drawer-content' v-show="_open"><slot></slot></div>
-  <div class='drawer-mask' v-show="_open" @click='toggleDisplay'></div>
+  <div class='drawer-content' v-show="visiable"><slot></slot></div>
+  <div class='drawer-mask' v-show="visiable" @click='toggleDisplay'></div>
 </div>
 </template>
 
@@ -26,18 +26,18 @@ export default {
   },
   data() {
     return {
-     
+      visiable:this.opened
     }
   },
-  computed: {
-    _open: function() {
-      return this.opened;
+  watch: {
+    opened: function(val) {
+      this.visiable =val;
     }
   },
   methods: {
     toggleDisplay() {
-      console.log(this.open)
-      this.open = !this.open;
+      this.visiable = false;
+       this.$emit('on-close');
     }
   }
 }

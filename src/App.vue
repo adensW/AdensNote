@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <bar><icon @handleclcik='handleClick'>menu</icon>123</bar>
-    <Drawer v-bind:opened="opened" v-show="opened">
+    <Drawer @on-close='drawerOpen=false' v-bind:opened="opened" v-show="opened">
       <div class='info'>User</div>
       <SideNav v-if="albumLoaded" class="layout-window"></SideNav>
       </Drawer>
@@ -58,7 +58,7 @@ export default {
       }
     },
     handleClick() {
-      this.drawerOpen = !this.drawerOpen;
+      this.drawerOpen = true;
       console.log('handleclick',this.drawerOpen)
 
     }
