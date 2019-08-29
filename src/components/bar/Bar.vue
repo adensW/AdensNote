@@ -1,7 +1,7 @@
 <template>
   <div class='bar'>
       <div class='bar-content'>
-          <icon @handleClick='handleClick'>menu</icon>
+          <slot></slot>
       </div>
 
   </div>
@@ -12,8 +12,7 @@ export default {
   name: 'Bar',
   methods: {
     handleClick() {
-      console.log('click')
-      this.$emit('handleClick')
+      this.$emit('handleclcik')
     }
   }
 }

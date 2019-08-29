@@ -1,5 +1,5 @@
 <template>
-  <i class='icons' @click="$emit('handleClick')">menu</i>
+  <i class='icons' @click="$emit('handleclcik')">menu</i>
 </template>
 
 <script>

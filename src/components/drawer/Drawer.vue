@@ -1,14 +1,14 @@
 <template>
 <div class='drawer-wrapper'>
-  <div class='mask' v-show='open' @click='toggleDisplay'></div>
-  <div class=''><slot></slot></div>
+  <div class='drawer-content' v-show="_open"><slot></slot></div>
+  <div class='drawer-mask' v-show="_open" @click='toggleDisplay'></div>
 </div>
 </template>
 
 <script>
 export default {
   name: 'Drawer',
-  prop: {
+  props: {
     opened: {
       type: Boolean,
       default: false
@@ -26,13 +26,12 @@ export default {
   },
   data() {
     return {
-      open: this.opened | false
+     
     }
   },
-  watch: {
-    opened: function(val) {
-      console.log(val);
-      this.open = val;
+  computed: {
+    _open: function() {
+      return this.opened;
     }
   },
   methods: {

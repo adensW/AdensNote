@@ -1,24 +1,38 @@
-.drawer-wrapper{
+.drawer-wrapper {
     position: fixed;
-    display: inline-block;
+    top:0px;
+    left:0px;
+    display: block;
     width: 256px;
-}
-.mask{
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    width: 100vw;
-    height: 100vh;
-    z-index: 10001;
-    filter:alpha(opacity=60);
-    background-color: #777;
-    opacity: 0.5;
-    -moz-opacity: 0.5;
-    &--on{
-        display: block;
+    height:100%;
+
+    .drawer-mask {
+        position: fixed;
+        top: 0px;
+        left: 0px;
+        width: 100vw;
+        height: 100vh;
+        z-index: 99;
+        filter: alpha(opacity=60);
+        background-color: #777;
+        opacity: 0.5;
+        -moz-opacity: 0.5;
+
+        &--on {
+            display: block;
+        }
+
+        &--off {
+            display: none;
+        }
     }
-    &--off{
-        display: none;
+    .drawer-content{
+        position: fixed;
+        top: 0px;
+        height:100%;
+        width: 256px;
+        z-index: 101;
+        background-color:burlywood;
+
     }
-    
 }

@@ -1,7 +1,10 @@
 <template>
   <div id="app">
-    <bar @handleClick='handleClick'></bar>
-    <Drawer :opened="drawerOpen"><SideNav v-if="albumLoaded" class="layout-window"></SideNav></Drawer>
+    <bar><icon @handleclcik='handleClick'>menu</icon>123</bar>
+    <Drawer v-bind:opened="opened" v-show="opened">
+      <div class='info'>User</div>
+      <SideNav v-if="albumLoaded" class="layout-window"></SideNav>
+      </Drawer>
     <div class='main-content'>
       <router-view></router-view>
     </div>
@@ -28,7 +31,10 @@ export default {
     };
   },
   computed: {
-    ...mapGetters(['storage', 'albumLoaded'])
+    ...mapGetters(['storage', 'albumLoaded']),
+    opened:function(){
+      return this.drawerOpen;
+    }
   },
 
   methods: {
