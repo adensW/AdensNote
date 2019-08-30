@@ -3,7 +3,7 @@
     <bar><icon @handleClick='handleClick'>menu</icon>123</bar>
     <Drawer @on-close='drawerOpen=false' v-bind:opened="opened" v-show="opened">
       <div class='info'>User</div>
-      <SideNav v-if="albumLoaded" class="layout-window"></SideNav>
+      <SideNav @on-close='drawerOpen=false' v-if="albumLoaded" class="layout-window"></SideNav>
       </Drawer>
     <div class='main-content'>
       <router-view></router-view>

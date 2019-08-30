@@ -9,7 +9,7 @@
       v-model="content"
       ref="todo"
       placeholder="no title" />
-    <span class='col-6' @click="loadEditor">>></span>
+    <span class='col-6' @click="loadEditor"><icon>chevron_right</icon></span>
       </div>
 </template>
 

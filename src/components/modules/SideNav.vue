@@ -2,7 +2,7 @@
   <div class='album'>
     <div class="fold" v-for="album in folds" :key="album.id">
       <Cell>{{album.name}}</Cell>
-      <SideNavItem v-for="link in album.links"
+      <SideNavItem @on-close="close" v-for="link in album.links"
         :key="link.id"
         v-bind="link"
       ></SideNavItem>
@@ -67,6 +67,9 @@ export default {
         name: 'title',
         isTrashed: false
       })
+    },
+    close(){
+      this.$emit('on-close')
     }
 
   },
