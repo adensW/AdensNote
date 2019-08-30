@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <bar><icon @handleclcik='handleClick'>menu</icon>123</bar>
+    <bar><icon @handleClick='handleClick'>menu</icon>123</bar>
     <Drawer @on-close='drawerOpen=false' v-bind:opened="opened" v-show="opened">
       <div class='info'>User</div>
       <SideNav v-if="albumLoaded" class="layout-window"></SideNav>

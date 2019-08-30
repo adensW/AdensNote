@@ -1,16 +1,17 @@
 <template>
   <div @click="loadTodo">
-    <input @input="onInput" v-model="content" />
+    <input @input="onInput" v-model="content" :readonly="readonly" />
+    <icon @handleClick="readonly=!readonly">{{readonly? 'edit':'save'}}</icon>
   </div>
 </template>
 
 <script>
-import _ from 'utils/lodash/lodash.js';
-import fs from 'libs/files.js';
-import uid from 'apis/uid.js'
-import { mapActions, mapGetters } from 'vuex';
+import _ from "utils/lodash/lodash.js";
+import fs from "libs/files.js";
+import uid from "apis/uid.js";
+import { mapActions, mapGetters } from "vuex";
 export default {
-  name: 'SideNavItem',
+  name: "SideNavItem",
   props: {
     id: {
       type: String,
@@ -23,18 +24,20 @@ export default {
   },
   data() {
     return {
-      content: this.title
+      content: this.title,
+      readonly: true
     };
   },
   computed: {
-    ...mapGetters(['todoPath'])
+    ...mapGetters(["todoPath"])
   },
   methods: {
     ...mapActions([
-      'updateTodoCollection',
-      'loadTodoProp',
-      'updateTodoLoadState',
-      'updateEditorLoadState']),
+      "updateTodoCollection",
+      "loadTodoProp",
+      "updateTodoLoadState",
+      "updateEditorLoadState"
+    ]),
 
     onInput: _.debounce(function(e) {
       //   this.TodoContent = e.target.innerText;
@@ -45,43 +48,47 @@ export default {
       });
     }, 200),
     loadTodo() {
-      this.updateTodoLoadState(false);
-      this.updateEditorLoadState(false);
+      if (this.readonly) {
+        this.updateTodoLoadState(false);
+        this.updateEditorLoadState(false);
 
-      fs.readFile(`${this.todoPath}\\${this.id}.json`, (err, content) => {
-        if (!err) {
-          let parsed = JSON.parse(content);
-          this.loadTodoProp(parsed)
-          this.updateTodoLoadState(true);
-        } else {
-          this.loadTodoProp({
-            id: this.id,
-            fold: this.notePath,
-            title: this.title,
-            todos: [{
-              id: uid(),
-              type: 'TODO',
-              title: '',
-              noteId: uid()
-            }],
-            createdAT: Date.now(),
-            updatedAt: Date.now(),
-            type: 'TODO',
-            isStarred: false,
-            isTrashed: false
-          })
-          this.updateTodoLoadState(true);
-        }
-      })
+        fs.readFile(`${this.todoPath}\\${this.id}.json`, (err, content) => {
+          if (!err) {
+            let parsed = JSON.parse(content);
+            this.loadTodoProp(parsed);
+            this.updateTodoLoadState(true);
+          } else {
+            this.loadTodoProp({
+              id: this.id,
+              fold: this.notePath,
+              title: this.title,
+              todos: [
+                {
+                  id: uid(),
+                  type: "TODO",
+                  title: "",
+                  noteId: uid()
+                }
+              ],
+              createdAT: Date.now(),
+              updatedAt: Date.now(),
+              type: "TODO",
+              isStarred: false,
+              isTrashed: false
+            });
+            this.updateTodoLoadState(true);
+          }
+        });
+      }
     }
   }
 };
 </script>
 
 <style lang="less" scoped>
-input{
-  width: 94%;
-  border: 0 ;
+input {
+  width: 80%;
+  border: 0;
   border-bottom: 1px solid gray;
 }
 </style>>

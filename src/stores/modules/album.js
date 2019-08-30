@@ -69,11 +69,11 @@ const mutations = {
     let item = state.albums[0].toDoCollection.find(o => o.id === todo.id)
     let index = state.albums[0].toDoCollection.findIndex(o => o.id === todo.id)
 
-    state.albums.toDoCollection.splice(index, 1, Object.assign(item, todo))
+    state.albums[0].toDoCollection.splice(index, 1, Object.assign(item, todo))
   },
   deleteTodoCollection(state, todo) {
     let index = state.albums[0].toDoCollection.findIndex(o => o.id === todo.id)
-    state.albums.toDoCollection.splice(index, 1)
+    state.albums[0].toDoCollection.splice(index, 1)
   },
   addAlbum(state, album) {
     state.albums.push(Object.assign(DEFAULT_ALBUM, album))
